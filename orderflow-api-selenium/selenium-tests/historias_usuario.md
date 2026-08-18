@@ -1,0 +1,16 @@
+# Historias de usuario - OrderFlow API (frontend de pruebas)
+
+| # | Historia de usuario | Criterios de aceptación | Test Selenium |
+|---|---|---|---|
+| HU01 | Como visitante nuevo quiero registrarme con nombre, correo y contraseña para poder crear una cuenta en OrderFlow. | Al enviar datos válidos se muestra un mensaje de éxito y soy redirigido al login. Con un correo ya registrado, se muestra un mensaje de error. | test_hu01_registro.py |
+| HU02 | Como usuario registrado quiero iniciar sesión con mi correo y contraseña para acceder a mi panel. | Con credenciales válidas ingreso al dashboard. Con credenciales inválidas se muestra un mensaje de error y permanezco en el login. | test_hu02_login.py |
+| HU03 | Como usuario autenticado quiero ver mi perfil (nombre y correo) al entrar al panel para confirmar que inicié sesión correctamente. | El panel muestra mi nombre y correo obtenidos desde /api/auth/perfil. | test_hu03_ver_perfil.py |
+| HU04 | Como usuario quiero ver la lista de productos activos disponibles para saber qué puedo pedir. | La tabla de productos se llena con los productos existentes devueltos por la API. | test_hu04_listar_productos.py |
+| HU05 | Como usuario autenticado quiero crear un producto nuevo indicando nombre, precio y stock para ampliar el catálogo. | Al enviar el formulario con datos válidos, el producto aparece en la tabla de productos. | test_hu05_crear_producto.py |
+| HU06 | Como usuario autenticado quiero que el sistema valide los datos del producto para no crear productos incompletos. | Si falta el nombre, precio o stock, el formulario HTML5 no permite el envío o la API responde con error y se muestra en pantalla. | test_hu06_validacion_producto.py |
+| HU07 | Como usuario autenticado quiero desactivar un producto que ya no se vende para que deje de aparecer disponible. | Al presionar "Desactivar", el producto desaparece de la tabla de productos activos. | test_hu07_desactivar_producto.py |
+| HU08 | Como usuario quiero agregar productos a un carrito de pedido antes de confirmarlo para revisar cantidades y total. | Al presionar "Agregar al pedido" el producto aparece en la tabla del carrito con su subtotal y el total se recalcula. | test_hu08_agregar_carrito.py |
+| HU09 | Como usuario autenticado quiero confirmar un pedido con los productos de mi carrito para que se registre y se descuente el inventario. | Al confirmar, se muestra un mensaje de éxito con el id del pedido y el pedido aparece en "Mis pedidos". | test_hu09_crear_pedido.py |
+| HU10 | Como usuario autenticado quiero ver el listado de mis pedidos anteriores para llevar control de mis compras. | La tabla "Mis pedidos" muestra los pedidos creados con sus items y total. | test_hu10_listar_pedidos.py |
+| HU11 | Como usuario quiero que el sistema me impida confirmar un pedido vacío para evitar pedidos sin productos. | Si el carrito está vacío y presiono "Confirmar pedido", se muestra un mensaje de error y no se crea ningún pedido. | test_hu11_pedido_vacio.py |
+| HU12 | Como usuario autenticado quiero poder cerrar sesión para proteger mi cuenta al terminar de usar el sistema. | Al presionar "Cerrar sesión" el token se elimina y soy redirigido al login; si intento volver al dashboard sin token, soy enviado de nuevo al login. | test_hu12_logout.py |

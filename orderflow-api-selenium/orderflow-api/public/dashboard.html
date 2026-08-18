@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>OrderFlow - Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>OrderFlow API - Panel</h1>
+    <div>
+      <span id="nombreUsuario"></span>
+      <button id="btnLogout">Cerrar sesion</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="panel">
+      <h3>Perfil</h3>
+      <p id="perfilInfo">Cargando...</p>
+    </div>
+
+    <div class="panel">
+      <h3>Crear producto</h3>
+      <div id="mensajeErrorProducto" class="mensaje-error"></div>
+      <form id="formProducto" class="form-linea">
+        <input type="text" id="nombreProducto" placeholder="Nombre del producto" required>
+        <input type="number" id="precioProducto" placeholder="Precio" step="0.01" required>
+        <input type="number" id="stockProducto" placeholder="Stock" required>
+        <button type="submit" id="btnCrearProducto">Agregar</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h3>Productos</h3>
+      <table id="tablaProductos">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoProductos"></tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h3>Carrito de pedido</h3>
+      <div id="mensajeErrorPedido" class="mensaje-error"></div>
+      <div id="mensajeExitoPedido" class="mensaje-exito"></div>
+      <table id="tablaCarrito">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoCarrito"></tbody>
+      </table>
+      <p id="totalCarrito" style="margin-top:10px;font-weight:bold;">Total: $0.00</p>
+      <button id="btnCrearPedido" class="btn-primario" style="max-width:220px;">Confirmar pedido</button>
+    </div>
+
+    <div class="panel">
+      <h3>Mis pedidos</h3>
+      <table id="tablaPedidos">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Items</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoPedidos"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

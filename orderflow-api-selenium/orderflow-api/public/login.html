@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>OrderFlow - Iniciar sesion</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Iniciar sesion</h2>
+    <div id="mensajeError" class="mensaje-error"></div>
+
+    <form id="formLogin">
+      <div class="campo">
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" required>
+      </div>
+      <div class="campo">
+        <label for="password">Contrasena</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn-primario" id="btnLogin">Entrar</button>
+    </form>
+
+    <a href="registro.html" class="enlace">No tengo cuenta, quiero registrarme</a>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
